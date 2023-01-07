@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest #update the verion where necessary
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+    - TUNNEL_TOKEN=$TOKEN
