@@ -59,7 +59,7 @@ services:
       - media:/media
       - custom-templates:/templates
     ports:
-      - "9000:9000"
+      - "9090:9000"
       - "9443:9443"
     depends_on:
       - postgresql
