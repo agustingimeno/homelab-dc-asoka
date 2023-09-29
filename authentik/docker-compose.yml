@@ -16,7 +16,7 @@ services:
     environment:
       PG_PASS: $PG_PASS
       POSTGRES_PASSWORD: $PG_PASS
-      POSTGRES_USER: PG_USER
+      POSTGRES_USER: $PG_USER
       POSTGRES_DB: authentikdb
   redis:
     image: docker.io/library/redis:alpine
