@@ -18,6 +18,8 @@ services:
       POSTGRES_PASSWORD: $PG_PASS
       POSTGRES_USER: $PG_USER
       POSTGRES_DB: authentikdb
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
   redis:
     image: docker.io/library/redis:alpine
     command: --save 60 1 --loglevel warning
@@ -30,6 +32,8 @@ services:
       timeout: 3s
     volumes:
       - redis:/data
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
   server:
     image: ghcr.io/goauthentik/server
     restart: unless-stopped
@@ -64,6 +68,9 @@ services:
     depends_on:
       - postgresql
       - redis
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
   worker:
     image: ghcr.io/goauthentik/server
     restart: unless-stopped
@@ -104,6 +111,8 @@ services:
     depends_on:
       - postgresql
       - redis
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
 
 volumes:
   database:
